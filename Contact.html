@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Photography Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo"> <a href="Index.html">
+            <img src="assets/Logo (1).png" alt="Logo">
+			</a>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="Index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="work.html">Work</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <section class="page-section contact-section">
+        <div class="boarding-pass">
+            <div class="pass-top">
+                <div class="pass-header">
+                    <h2>BOOKING PASS</h2>
+                </div>
+                <div class="pass-info">
+                    <div class="info-box">
+                        <span class="label">FROM:</span>
+                        <span class="value">Your Studio</span>
+                    </div>
+                    <div class="info-box">
+                        <span class="label">TO:</span>
+                        <span class="value">Your Memories</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pass-divider"></div>
+
+            <div class="pass-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <input type="text" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" placeholder="Phone Number" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Tell me about your project..." rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">BOOK NOW</button>
+                </form>
+            </div>
+
+            <div class="pass-barcode">
+                <svg height="50" width="100%">
+                    <line x1="0" y1="0" x2="0" y2="50" stroke="black" stroke-width="2"/>
+                    <line x1="10" y1="0" x2="10" y2="50" stroke="black" stroke-width="1"/>
+                    <line x1="15" y1="0" x2="15" y2="50" stroke="black" stroke-width="2"/>
+                    <line x1="25" y1="0" x2="25" y2="50" stroke="black" stroke-width="1"/>
+                    <line x1="35" y1="0" x2="35" y2="50" stroke="black" stroke-width="2"/>
+                    <line x1="40" y1="0" x2="40" y2="50" stroke="black" stroke-width="1"/>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
