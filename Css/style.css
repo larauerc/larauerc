@@ -330,10 +330,10 @@ body:has(.page-section) .hamburger span {
     letter-spacing: 2px;
 }
 
-/* Gallery Grid */
+/* Gallery Grid - 3 Colunas */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     margin: 40px 0;
 }
@@ -344,35 +344,35 @@ body:has(.page-section) .hamburger span {
     border-radius: 10px;
     cursor: pointer;
     transition: transform 0.3s ease;
+    object-fit: cover;
 }
 
 .gallery-grid img:hover {
     transform: scale(1.05);
 }
 
-/* Videos Grid */
-.videos-grid {
+/* Reels Grid - 3 Colunas Vertical */
+.reels-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
     margin: 40px 0;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.video-container {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    height: 0;
+.reel-container {
+    aspect-ratio: 9 / 16;
     overflow: hidden;
     border-radius: 10px;
+    background-color: #000;
 }
 
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
+.reel-container video {
     width: 100%;
     height: 100%;
+    object-fit: cover;
     border-radius: 10px;
 }
 
@@ -393,6 +393,22 @@ body:has(.page-section) .hamburger span {
 
 .back-link a:hover {
     color: #007bff;
+}
+
+/* Responsive - 2 colunas em tablets */
+@media (max-width: 1024px) {
+    .gallery-grid,
+    .reels-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Responsive - 1 coluna em mobile */
+@media (max-width: 768px) {
+    .gallery-grid,
+    .reels-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* ========== CONTACT PAGE ========== */
