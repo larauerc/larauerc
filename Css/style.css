@@ -365,10 +365,6 @@ body:has(.page-section) .hamburger span {
     object-fit: cover;
 }
 
-.gallery-grid img:hover {
-    transform: scale(1.05);
-}
-
 /* Reels Grid - 3 Colunas Vertical */
 .reels-grid {
     display: grid;
