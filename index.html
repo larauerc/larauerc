@@ -24,25 +24,41 @@
         </div>
     </nav>
 
-    <section class="hero">
-        <div class="slideshow-container">
-            <div class="slide fade">
-                <img src="Assets/Imagens/01.jpg" alt="Photo 1">
-            </div>
-            <div class="slide fade">
-                <img src="Assets/Imagens/02.png" alt="Photo 2">
-            </div>
-            <div class="slide fade">
-                <img src="Assets/Imagens/03.jpg" alt="Photo 3">
-            </div>
-            <div class="slide fade">
-                <img src="Assets/Imagens/04.jpg" alt="Photo 4">
-            </div>
-			 <div class="slide fade">
-                <img src="Assets/Imagens/02.png" alt="Photo 4">
-            </div>
-        </div>
-    </section>
+   <!-- Slideshow Section -->
+	<section class="slideshow-section">
+	    <div class="slideshow-container">
+	        <div class="slide fade">
+	            <img src="Assets/slide1.jpeg" alt="Slide 1">
+	        </div>
+	        <div class="slide fade">
+	            <img src="Assets/slide2.jpeg" alt="Slide 2">
+	        </div>
+	        <div class="slide fade">
+	            <img src="Assets/slide3.jpeg" alt="Slide 3">
+	        </div>
+	        <div class="slide fade">
+	            <img src="Assets/slide4.jpeg" alt="Slide 4">
+	        </div>
+	        <!-- Adiciona mais slides aqui -->
+	
+	        <!-- Controles -->
+	        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+	        <a class="next" onclick="changeSlide(1)">&#10095;</a>
+	    </div>
+	
+	    <!-- Indicador -->
+	    <div class="slide-indicator">
+	        <span id="current-slide">1</span> / <span id="total-slides">4</span>
+	    </div>
+	
+	    <!-- Dots (opcional) -->
+	    <div class="dots">
+	        <span class="dot" onclick="goToSlide(0)"></span>
+	        <span class="dot" onclick="goToSlide(1)"></span>
+	        <span class="dot" onclick="goToSlide(2)"></span>
+	        <span class="dot" onclick="goToSlide(3)"></span>
+	    </div>
+	</section>
 
     <script src="js/script.js"></script>
 </body>
