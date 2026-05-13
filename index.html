@@ -9,7 +9,9 @@
 <body>
     <nav class="navbar">
         <div class="logo">
-            <img src="Assets/Logo (1).png" alt="Logo">
+            <a href="index.html">
+                <img src="Assets/Logo (1).png" alt="Logo">
+            </a>
         </div>
         <ul class="nav-menu">
             <li><a href="index.html" class="active">Home</a></li>
@@ -24,41 +26,42 @@
         </div>
     </nav>
 
-   <!-- Slideshow Section -->
-	<section class="slideshow-section">
-	    <div class="slideshow-container">
-	        <div class="slide fade">
-	            <img src="Assets/slide1.jpeg" alt="Slide 1">
-	        </div>
-	        <div class="slide fade">
-	            <img src="Assets/slide2.jpeg" alt="Slide 2">
-	        </div>
-	        <div class="slide fade">
-	            <img src="Assets/slide3.jpeg" alt="Slide 3">
-	        </div>
-	        <div class="slide fade">
-	            <img src="Assets/slide4.jpeg" alt="Slide 4">
-	        </div>
-	        <!-- Adiciona mais slides aqui -->
-	
-	        <!-- Controles -->
-	        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
-	        <a class="next" onclick="changeSlide(1)">&#10095;</a>
-	    </div>
-	
-	    <!-- Indicador -->
-	    <div class="slide-indicator">
-	        <span id="current-slide">1</span> / <span id="total-slides">4</span>
-	    </div>
-	
-	    <!-- Dots (opcional) -->
-	    <div class="dots">
-	        <span class="dot" onclick="goToSlide(0)"></span>
-	        <span class="dot" onclick="goToSlide(1)"></span>
-	        <span class="dot" onclick="goToSlide(2)"></span>
-	        <span class="dot" onclick="goToSlide(3)"></span>
-	    </div>
-	</section>
+    <!-- Hero Section com Slideshow -->
+    <section class="hero">
+        <div class="slideshow-container">
+            <!-- Slides -->
+            <div class="slide fade">
+                <img src="Assets/slide1.jpeg" alt="Slide 1">
+            </div>
+            <div class="slide fade">
+                <img src="Assets/slide2.jpeg" alt="Slide 2">
+            </div>
+            <div class="slide fade">
+                <img src="Assets/slide3.jpeg" alt="Slide 3">
+            </div>
+            <div class="slide fade">
+                <img src="Assets/slide4.jpeg" alt="Slide 4">
+            </div>
+            <!-- Adiciona mais slides aqui -->
+
+            <!-- Setas de Navegação -->
+            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+            <a class="next" onclick="changeSlide(1)">&#10095;</a>
+
+            <!-- Indicador (4/10) -->
+            <div class="slide-indicator">
+                <span id="current-slide">1</span> / <span id="total-slides">4</span>
+            </div>
+
+            <!-- Dots (Pontos de navegação) -->
+            <div class="dots">
+                <span class="dot" onclick="goToSlide(0)"></span>
+                <span class="dot" onclick="goToSlide(1)"></span>
+                <span class="dot" onclick="goToSlide(2)"></span>
+                <span class="dot" onclick="goToSlide(3)"></span>
+            </div>
+        </div>
+    </section>
 
     <script src="js/script.js"></script>
 </body>
