@@ -1,53 +1,95 @@
 // ========== SLIDESHOW ==========
 let slideIndex = 0;
-let slideshowTimeout = null;
+let autoSlideTimer;
+const SLIDE_INTERVAL = 5000; // 5 segundos (muda conforme queiras)
 
-function showSlides() {
+// Inicializar slideshow
+function initSlideshow() {
     const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
     
-    // Se não há slides, saímos da função (não está na homepage)
-    if (slides.length === 0) return;
+    if (totalSlides === 0) return;
+    
+    // Atualizar total de slides no indicador
+    document.getElementById('total-slides').textContent = totalSlides;
+    
+    // Mostrar primeiro slide
+    showSlide(0);
+    
+    // Iniciar auto-play
+    autoSlideTimer = setInterval(() => {
+        showSlide(++slideIndex);
+    }, SLIDE_INTERVAL);
+}
 
-    slides.forEach(slide => slide.style.display = 'none');
+// Mostrar slide específico
+function showSlide(n) {
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+    const totalSlides = slides.length;
     
-    slideIndex++;
-    if (slideIndex > slides.length) {
-        slideIndex = 1;
+    if (totalSlides === 0) return;
+    
+    // Voltar ao início se chegar ao fim
+    if (n >= totalSlides) {
+        slideIndex = 0;
+    } else if (n < 0) {
+        slideIndex = totalSlides - 1;
     }
     
-    slides[slideIndex - 1].style.display = 'block';
+    // Remover class 'active' de todos os slides e dots
+    slides.forEach(slide => slide.classList.remove('active'));
+    dots.forEach(dot => dot.classList.remove('active'));
     
-    // Limpar timeout anterior antes de criar um novo
-    if (slideshowTimeout) {
-        clearTimeout(slideshowTimeout);
+    // Adicionar class 'active' ao slide atual
+    slides[slideIndex].classList.add('active');
+    if (dots[slideIndex]) {
+        dots[slideIndex].classList.add('active');
     }
     
-    slideshowTimeout = setTimeout(showSlides, 5000); // Muda de imagem a cada 5 segundos
+    // Atualizar indicador (4/10)
+    document.getElementById('current-slide').textContent = slideIndex + 1;
+    
+    // Resetar timer do auto-play
+    clearInterval(autoSlideTimer);
+    autoSlideTimer = setInterval(() => {
+        showSlide(++slideIndex);
+    }, SLIDE_INTERVAL);
+}
+
+// Setas (Previous/Next)
+function changeSlide(n) {
+    showSlide(slideIndex += n);
+}
+
+// Ir para slide específico (dots)
+function goToSlide(n) {
+    showSlide(slideIndex = n);
 }
 
 // Reiniciar slideshow quando voltamos para home
 document.addEventListener('pageshow', function(e) {
     if (e.persisted) {
         // Página foi restaurada do cache
-        slideIndex = 0; // Reset do índice
+        slideIndex = 0;
         
-        // Limpar timeout anterior
-        if (slideshowTimeout) {
-            clearTimeout(slideshowTimeout);
+        // Limpar timer anterior
+        if (autoSlideTimer) {
+            clearInterval(autoSlideTimer);
         }
         
         // Reiniciar slideshow se estivermos na homepage
         const slides = document.querySelectorAll('.slide');
         if (slides.length > 0) {
-            showSlides();
+            initSlideshow();
         }
     }
 });
 
-// Inicia o slideshow quando a página carrega
+// Inicia quando a página carrega
 document.addEventListener('DOMContentLoaded', function() {
-    slideIndex = 0; // Reiniciar índice
-    showSlides();
+    slideIndex = 0;
+    initSlideshow();
     setupMobileMenu();
     setupFormSubmission();
 });
@@ -93,16 +135,9 @@ function setupFormSubmission() {
     }
 }
 
-// ========== SCROLL LOCK (evitar scroll nas páginas fullpage) ==========
-document.addEventListener('DOMContentLoaded', function() {
-    document.body.style.overflow = 'hidden';
-});
-
-// ========== ADICIONAR EFEITO DE SCROLL SUAVE ENTRE PÁGINAS ==========
+// ========== LIMPAR TIMER AO SAIR DA PÁGINA ==========
 window.addEventListener('beforeunload', function() {
-    // Limpar timeout ao sair da página
-    if (slideshowTimeout) {
-        clearTimeout(slideshowTimeout);
+    if (autoSlideTimer) {
+        clearInterval(autoSlideTimer);
     }
-    window.scrollTo(0, 0);
 });
