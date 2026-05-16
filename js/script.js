@@ -7,7 +7,7 @@ const SLIDE_INTERVAL = 5000; // 5 segundos (muda conforme queiras)
 function initSlideshow() {
     const slides = document.querySelectorAll('.slide');
     const totalSlides = slides.length;
-    
+     
     if (totalSlides === 0) return;
     
     // Atualizar total de slides no indicador
