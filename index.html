@@ -6,17 +6,18 @@
     <title>Photography Portfolio</title>
 	<link rel="stylesheet" href="Css/style.css">
 </head>
-<body> 
+<body>
     <nav class="navbar">
         <div class="logo">
             <a href="index.html">
-                <img src="Assets/Logo (1).png" alt="Logo">
+                <img src="Assets/larauerc.png" alt="Logo">
             </a>
         </div>
         <ul class="nav-menu">
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="work.html">Work</a></li>
+            <li><a href="photos.html">Photos</a></li>
+			<li><a href="videos.html">Videos</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
         <div class="hamburger">
@@ -26,13 +27,16 @@
         </div>
     </nav>
 
-    <!-- Hero Section com Slideshow -->
+    <!-- Hero Section - Imagem Única -->
     <section class="hero">
         <div class="slideshow-container">
-            <!-- Slides -->
-            <div class="slide fade">
-                <img src="Assets/Imagens/01.jpg" alt="Slide 1">
+            <!-- Imagem Principal -->
+            <div class="slide active">
+                <img src="Assets/Retratos/Retrato_02.jpg" alt="Hero Image">
             </div>
+
+            <!-- SLIDESHOW DESATIVADO - Comentado para uso futuro -->
+            <!-- 
             <div class="slide fade">
                 <img src="Assets/Imagens/02.png" alt="Slide 2">
             </div>
@@ -42,24 +46,28 @@
             <div class="slide fade">
                 <img src="Assets/Imagens/04.jpg" alt="Slide 4">
             </div>
-            <!-- Adiciona mais slides aqui -->
 
-            <!-- Setas de Navegação -->
-            <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
-            <a class="next" onclick="changeSlide(1)">&#10095;</a>
-
-            <!-- Indicador (4/10) -->
+            <!-- Indicador com Setas -->
+            <!--
             <div class="slide-indicator">
+                <a class="arrow-prev" onclick="changeSlide(-1)">
+                    <img src="Assets/Imagens/Seta-02.png" alt="Anterior">
+                </a>
                 <span id="current-slide">1</span> / <span id="total-slides">4</span>
+                <a class="arrow-next" onclick="changeSlide(1)">
+                    <img src="Assets/Imagens/Seta-03.png" alt="Próximo">
+                </a>
             </div>
 
             <!-- Dots (Pontos de navegação) -->
+            <!--
             <div class="dots">
                 <span class="dot" onclick="goToSlide(0)"></span>
                 <span class="dot" onclick="goToSlide(1)"></span>
                 <span class="dot" onclick="goToSlide(2)"></span>
                 <span class="dot" onclick="goToSlide(3)"></span>
             </div>
+            -->
         </div>
     </section>
 
