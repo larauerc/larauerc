@@ -593,7 +593,7 @@ body:has(.page-section) .hamburger span {
 .pass-info {
     display: flex;
     justify-content: space-around;
-    gap: 20px;
+    gap: 200px;
 }
 
 .info-box {
@@ -603,7 +603,7 @@ body:has(.page-section) .hamburger span {
 }
 
 .info-box .label {
-    font-size: 12px;
+    font-size: 10px;
     color: var(--secondary-color);
     letter-spacing: 1px;
 }
@@ -624,7 +624,20 @@ body:has(.page-section) .hamburger span {
 }
 
 .form-group {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
     margin-bottom: 15px;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.form-group:focus {
+    border-color: var(--secondary-color);
 }
 
 .form-group input,
@@ -660,8 +673,8 @@ body:has(.page-section) .hamburger span {
 }
 
 .submit-btn:hover {
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
+    background-color: #071b4f;
+    color: #ffffff;
 }
 
 .pass-barcode {

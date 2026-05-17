@@ -44,25 +44,28 @@
                 </div>
             </div>
 
+
             <div class="pass-divider"></div>
 
-            <div class="pass-form">
-                <form id="contactForm">
-                    <div class="form-group">
-                        <input type="text" placeholder="Full Name" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" placeholder="Email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="tel" placeholder="Phone Number" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea placeholder="Tell me about your project..." rows="4" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">BOOK NOW</button>
-                </form>
-            </div>
+			<div class="pass-form">
+				<form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+					<input type="hidden" name="access_key" value="85f5d4eb-d4e0-4180-8f92-464af1658498">
+
+					<input class="form-group" type="text" name="name" placeholder="Full Name" required>
+
+					<input class="form-group" type="email" name="email" placeholder="Email" required>
+					<input class="form-group" type="text" name="assunto" placeholder="Subject" required>
+					<textarea
+						class="form-group"
+						name="message"
+						placeholder="Tell me about your project..."
+						rows="4"
+						required
+					></textarea>
+
+					<button type="submit" class="submit-btn">BOOK NOW</button>
+				</form>
+			</div>
 
             <div class="pass-barcode">
                 <svg height="30" width="100%">
