@@ -39,7 +39,7 @@ html, body {
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1000;
+    z-index: 1001;
     box-shadow: none;
     transition: all 0.3s ease;
 }
@@ -140,7 +140,7 @@ body:has(.page-section) .hamburger span {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: -1;
+    z-index: 1;
 }
 
 .slideshow-container {
