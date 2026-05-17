@@ -140,6 +140,7 @@ body:has(.page-section) .hamburger span {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: -1;
 }
 
 .slideshow-container {
@@ -272,8 +273,9 @@ body:has(.page-section) .hamburger span {
     align-items: center;
     width: 100%;
     padding: 80px 20px 60px 20px;
-    min-height: auto;
+    height: auto;
     margin-top: 0;
+    position: relative;
 }
 
 .page-section h1 {
@@ -284,6 +286,50 @@ body:has(.page-section) .hamburger span {
     padding-top: 20px;
 }
 
+/* ========== ABOUT PAGE ========== */
+.about-section {
+    padding-top: 140px;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.about-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+.about-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.55);
+    z-index: 1;
+}
+
+.about-image {
+    width: 90%;
+    max-width: 1000px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0);
+    object-fit: cover;
+    position: relative;
+    z-index: 2;
+}
 /* ========== PASSPORT PAGE ========== */
 .passport-container {
     width: 90%;
@@ -511,17 +557,19 @@ body:has(.page-section) .hamburger span {
 
 /* ========== CONTACT PAGE ========== */
 .contact-section {
-    padding-top: 110px;
+    padding-top: 140px;
     background: linear-gradient(135deg, #f5f5f5, #e8e8e8);
-    min-height: 100px;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    z-index: 1;
 }
 
 .boarding-pass {
     width: 90%;
-    max-width: 750px;
+    max-width: 600px;
     background: white;
     border: 2px dashed var(--border-color);
     border-radius: 10px;
@@ -568,7 +616,7 @@ body:has(.page-section) .hamburger span {
 .pass-divider {
     height: 2px;
     background: linear-gradient(to right, transparent, var(--border-color), transparent);
-    margin: 10px 0;
+    margin: 20px 0;
 }
 
 .pass-form {
@@ -612,13 +660,13 @@ body:has(.page-section) .hamburger span {
 }
 
 .submit-btn:hover {
-    background-color: #021d61;
-    color: #FFFFFF;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
 }
 
 .pass-barcode {
     background: white;
-    padding: 2px;
+    padding: 15px;
     text-align: center;
     border-top: 1px solid var(--border-color);
 }
@@ -655,6 +703,10 @@ body:has(.page-section) .hamburger span {
     .passport-container {
         height: auto;
         max-width: 800px;
+    }
+
+    .about-image {
+        max-width: 90%;
     }
 }
 
@@ -715,6 +767,10 @@ body:has(.page-section) .hamburger span {
     .pass-info {
         flex-direction: column;
     }
+
+    .about-image {
+        max-width: 90%;
+    }
 }
 
 @media (max-width: 480px) {
@@ -758,5 +814,9 @@ body:has(.page-section) .hamburger span {
 
     .work-overlay h3 {
         font-size: 24px;
+    }
+
+    .about-image {
+        max-width: 95%;
     }
 }
