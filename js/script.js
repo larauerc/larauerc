@@ -37,3 +37,39 @@ window.addEventListener('beforeunload', function() {
         clearInterval(autoSlideTimer);
     }
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Seleciona os elementos necessários
+    const galleryImages = document.querySelectorAll(".gallery-grid img");
+    const modal = document.getElementById("image-modal");
+    const modalImg = document.getElementById("img-ampliada");
+    const closeModal = document.querySelector(".close-modal");
+
+    // Adiciona o evento de clique a cada imagem da galeria
+    galleryImages.forEach(img => {
+        img.addEventListener("click", function() {
+            modal.style.display = "flex"; // Mostra o modal (usando flex para centrar a imagem)
+            modalImg.src = this.src;      // Passa o caminho da imagem clicada para o modal
+            modalImg.alt = this.alt;      // Copia o texto alternativo para acessibilidade
+        });
+    });
+
+    // Fecha o modal ao clicar no botão "X"
+    closeModal.addEventListener("click", function() {
+        modal.style.display = "none";
+    });
+
+    // Fecha o modal se o utilizador clicar no fundo escuro (fora da imagem)
+    modal.addEventListener("click", function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+
+    // BÓNUS: Fecha o modal se carregar na tecla "Esc" do teclado
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "Escape" && modal.style.display === "flex") {
+            modal.style.display = "none";
+        }
+    });
+});
